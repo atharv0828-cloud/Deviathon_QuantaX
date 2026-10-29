@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<!-- Reports page structure. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results & Reports | ExamShield AI</title>
+  <link rel="stylesheet" href="live-monitor.css">
+  <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">🛡</span> ExamShield <b>AI</b></div>
+    <p class="nav-label">ADMIN WORKSPACE</p>
+    <a href="admin-dashboard.html">▦ &nbsp; Dashboard</a>
+    <a href="create-exam.html">＋ &nbsp; Create Exam</a>
+    <a href="live-monitor.html">◉ &nbsp; Live Monitoring</a>
+    <a class="active" href="reports.html">▤ &nbsp; Results & Reports</a>
+    <button id="logoutBtn" class="logout">↪ &nbsp; Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PERFORMANCE ANALYTICS</p>
+        <h1>Results & Reports</h1>
+        <p class="muted">Review candidate performance and export the demo report.</p>
+      </div>
+      <span class="demo-badge">DEMO DATA</span>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Submissions</span>
+        <strong id="totalCount">04</strong>
+        <small>Sample report records</small>
+      </article>
+      <article class="stat-card">
+        <span>Average Score</span>
+        <strong id="averageScore">76%</strong>
+        <small>Across displayed records</small>
+      </article>
+      <article class="stat-card">
+        <span>Flagged Records</span>
+        <strong id="flaggedCount">02</strong>
+        <small>Require manual review</small>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>Exam Performance</h2>
+          <p class="muted">Filter records and export the currently displayed results.</p>
+        </div>
+        <button id="exportBtn" class="view-btn">↓ Export CSV</button>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search candidate or exam...">
+        <select id="statusFilter">
+          <option value="all">All statuses</option>
+          <option value="Completed">Completed</option>
+          <option value="Flagged">Flagged for review</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Candidate</th>
+              <th>Exam</th>
+              <th>Score</th>
+              <th>Duration</th>
+              <th>Security Events</th>
+              <th>Result Status</th>
+            </tr>
+          </thead>
+          <tbody id="resultsRows"></tbody>
+        </table>
+      </div>
+      <p class="footnote">Sample records are illustrative and are not real student results.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Report Summary</h2>
+      <p class="muted">A quick overview of the displayed records.</p>
+      <div id="summary" class="summary-grid"></div>
+    </section>
+  </main>
+
+  <script src="reports.js"></script>
+</body>
+</html>

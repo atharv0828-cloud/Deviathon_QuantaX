@@ -1,0 +1,163 @@
+/* Admin login page styling. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #08111f;
+    color: #edf4ff;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    width: min(440px, 92%);
+    margin: auto;
+    padding: 45px 0 25px;
+}
+
+.brand {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.brand-icon {
+    font-size: 42px;
+}
+
+.brand h1 {
+    font-size: 27px;
+    margin: 10px 0;
+}
+
+.brand h1 span {
+    color: #22d3ee;
+}
+
+.brand > p {
+    margin: 0;
+    color: #91a4bf;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+.login-card {
+    padding: 30px;
+    background: #101c2e;
+    border: 1px solid #2b405b;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.admin-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #123b30;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.eyebrow {
+    color: #4ade80;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.login-card h2 {
+    margin: 12px 0;
+    font-size: 27px;
+}
+
+.subtitle {
+    color: #91a4bf;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+form label {
+    display: block;
+    font-size: 13px;
+    margin: 18px 0 8px;
+}
+
+form input {
+    width: 100%;
+    padding: 13px;
+    color: #edf4ff;
+    background: #091424;
+    border: 1px solid #354761;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+form input:focus {
+    border-color: #22d3ee;
+}
+
+form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #16a34a;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #15803d;
+}
+
+form button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.error-message {
+    color: #fca5a5;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.security-note {
+    padding: 13px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: #17283c;
+    color: #bdc9d9;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.back-link {
+    text-align: center;
+    color: #91a4bf;
+    font-size: 13px;
+    margin: 24px 0;
+}
+
+.back-link a {
+    color: #22d3ee;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    color: #71839c;
+    font-size: 10px;
+    margin-top: 25px;
+}

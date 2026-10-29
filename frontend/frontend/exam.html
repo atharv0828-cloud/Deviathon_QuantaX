@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<!-- Exam page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamShield AI | Examination</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="exam.css">
+
+    <style>
+        #startGate {
+            position: fixed;
+            inset: 0;
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(3, 7, 18, 0.96);
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .start-card {
+            width: min(460px, 100%);
+            padding: 32px;
+            text-align: center;
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px #0005;
+        }
+
+        .start-card h1 {
+            margin-bottom: 12px;
+        }
+
+        .start-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        #startSecureExamButton {
+            width: 100%;
+            margin-top: 18px;
+            padding: 14px 20px;
+            border: 0;
+            border-radius: 10px;
+            background: #16a34a;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        #startSecureExamButton:disabled {
+            cursor: wait;
+            opacity: 0.7;
+        }
+
+        #startError {
+            min-height: 20px;
+            margin-top: 12px;
+            color: #fca5a5;
+            font-size: 14px;
+        }
+
+        #examShieldStatus {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 9998;
+            max-width: 300px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: #10251d;
+            color: #fff;
+            font: 14px Arial, sans-serif;
+            box-shadow: 0 4px 18px #0003;
+        }
+
+        #examCameraPreview {
+            position: fixed;
+            right: 16px;
+            bottom: 76px;
+            z-index: 9997;
+            width: 180px;
+            max-width: 35vw;
+            border-radius: 12px;
+            background: #111;
+            transform: scaleX(-1);
+        }
+
+        #examShieldWarning {
+            position: fixed;
+            inset: 0;
+            z-index: 30000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.78);
+            font-family: Arial, sans-serif;
+        }
+
+        #examShieldWarning .warning-card {
+            width: min(420px, 100%);
+            padding: 28px;
+            border-radius: 16px;
+            background: white;
+            color: #171717;
+            text-align: center;
+        }
+
+        #examShieldWarningOk {
+            padding: 10px 22px;
+            cursor: pointer;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- This screen stays visible until Start Secure Exam is clicked. -->
+    <section id="startGate" role="dialog" aria-modal="true"
+             aria-labelledby="startTitle">
+        <div class="start-card">
+            <div style="font-size:42px;">🛡️</div>
+            <h1 id="startTitle">ExamShield AI</h1>
+            <p>
+                Your exam has not started yet. Click the button below
+                to enable the camera, request fullscreen, and start
+                the examination timer.
+            </p>
+            <p>
+                Allow camera access when your browser asks for permission.
+            </p>
+
+            <button id="startSecureExamButton" type="button">
+                Start Secure Exam
+            </button>
+
+            <p id="startError" role="status" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- All exam controls remain inert until the exam starts. -->
+    <div id="examContent" inert>
+        <header class="exam-header">
+            <div class="brand">
+                <span class="brand-icon">🛡</span>
+                <div>
+                    <h2>ExamShield <span>AI</span></h2>
+                    <p>SECURE EXAMINATION</p>
+                </div>
+            </div>
+
+            <div class="exam-header-right">
+                <div class="live-status" id="examLiveStatus">
+                    <span class="live-dot"></span>
+                    Waiting to start
+                </div>
+
+                <div class="timer-box">
+                    <span>TIME LEFT</span>
+                    <strong id="timer">15:00</strong>
+                </div>
+            </div>
+        </header>
+
+        <main class="exam-layout">
+            <section class="question-panel">
+                <div class="exam-title-row">
+                    <div>
+                        <p class="eyebrow">GENERAL ASSESSMENT</p>
+                        <h1 id="examTitle">Multiple Choice Examination</h1>
+                    </div>
+                    <span class="question-count" id="questionCount">
+                        Question 1 of 10
+                    </span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="examProgress"></div>
+                </div>
+
+                <div class="question-meta">
+                    <span id="questionNumber">QUESTION 01</span>
+                    <span>1 mark</span>
+                </div>
+
+                <h2 id="questionText">Loading question...</h2>
+                <div id="optionsContainer" class="options-container"></div>
+
+                <div class="review-row">
+                    <button id="reviewButton" class="review-btn" type="button">
+                        ☆ Mark for Review
+                    </button>
+                    <span id="savedStatus">Your answer is saved locally</span>
+                </div>
+
+                <div class="navigation-row">
+                    <button id="previousButton" class="nav-btn"
+                            type="button" disabled>
+                        ← Previous
+                    </button>
+                    <button id="nextButton" class="next-btn" type="button">
+                        Next Question →
+                    </button>
+                </div>
+            </section>
+
+            <aside class="exam-sidebar">
+                <div class="student-card">
+                    <div class="student-avatar" id="studentAvatar">S</div>
+                    <div>
+                        <h3 id="studentName">Student</h3>
+                        <p>Candidate</p>
+                    </div>
+                </div>
+
+                <div class="palette-card">
+                    <h3>Question Palette</h3>
+                    <p class="palette-description">
+                        Select a question to navigate.
+                    </p>
+
+                    <div class="palette-legend">
+                        <span><i class="legend-box answered"></i> Answered</span>
+                        <span><i class="legend-box current"></i> Current</span>
+                        <span><i class="legend-box review"></i> Review</span>
+                        <span><i class="legend-box unanswered"></i> Unanswered</span>
+                    </div>
+
+                    <div id="questionPalette" class="question-palette"></div>
+
+                    <div class="palette-stats">
+                        <div>
+                            <strong id="answeredCount">0</strong>
+                            <span>Answered</span>
+                        </div>
+                        <div>
+                            <strong id="unansweredCount">10</strong>
+                            <span>Unanswered</span>
+                        </div>
+                        <div>
+                            <strong id="reviewCount">0</strong>
+                            <span>Review</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proctor-card">
+                    <span>🛡</span>
+                    <div>
+                        <h3>Proctoring Notice</h3>
+                        <p>
+                            Camera and supported face-detection checks run
+                            after the exam starts. This browser prototype
+                            cannot prevent every form of cheating.
+                        </p>
+                    </div>
+                </div>
+
+                <button id="submitButton" class="submit-btn" type="button">
+                    Submit Examination
+                </button>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Result modal stays outside the inert exam content. -->
+    <div id="resultModal" class="modal hidden">
+        <div class="result-card">
+            <div class="result-icon">✓</div>
+            <p class="eyebrow">EXAMINATION COMPLETE</p>
+            <h2 id="resultHeading">Exam Submitted</h2>
+            <p id="resultMessage">Your responses have been evaluated.</p>
+
+            <div class="result-stats">
+                <div>
+                    <strong id="scoreValue">0 / 10</strong>
+                    <span>Score</span>
+                </div>
+                <div>
+                    <strong id="resultAnswered">0</strong>
+                    <span>Attempted</span>
+                </div>
+                <div>
+                    <strong id="resultUnanswered">10</strong>
+                    <span>Unanswered</span>
+                </div>
+            </div>
+
+            <button id="finishButton" class="next-btn" type="button">
+                Return to Dashboard
+            </button>
+        </div>
+    </div>
+
+    <script src="exam.js"></script>
+</body>
+</html>

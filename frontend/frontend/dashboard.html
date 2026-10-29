@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<!-- Student dashboard page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ExamShield AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+
+    <aside class="sidebar">
+        <a href="dashboard.html" class="side-brand">
+            <span>⬡</span> EXAMSHIELD <small>AI</small>
+        </a>
+
+        <p class="nav-heading">WORKSPACE</p>
+
+        <a href="dashboard.html" class="nav-link active">▦ &nbsp; Dashboard</a>
+        <a href="#upcoming" class="nav-link">▤ &nbsp; My Examinations</a>
+        <a href="#history" class="nav-link">◷ &nbsp; Exam History</a>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <span class="help-icon">?</span>
+                <div>
+                    <strong>Need help?</strong>
+                    <p>Contact your exam administrator.</p>
+                </div>
+            </div>
+            <button id="logoutButton" class="logout-button">↪ &nbsp; Sign out</button>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        <header class="dashboard-topbar">
+            <div>
+                <p class="eyebrow">STUDENT WORKSPACE</p>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="profile">
+                <div class="profile-avatar">S</div>
+                <div>
+                    <strong id="studentName">Student</strong>
+                    <p>Candidate account</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="welcome-banner">
+            <div>
+                <p class="banner-label">WELCOME TO EXAMSHIELD AI</p>
+                <h2>Exams with confidence.<br><span>Integrity by design.</span></h2>
+                <p class="banner-description">
+                    Your examinations, session details and assessment
+                    readiness — all in one place.
+                </p>
+            </div>
+            <div class="banner-emblem">⬡</div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon cyan">▤</div>
+                <p>Upcoming exams</p>
+                <h3>01</h3>
+                <span>Scheduled assessment</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon blue">✓</div>
+                <p>Completed exams</p>
+                <h3>00</h3>
+                <span>No completed sessions yet</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon purple">◷</div>
+                <p>Platform status</p>
+                <h3 class="status-heading">Demo</h3>
+                <span>Frontend prototype mode</span>
+            </article>
+        </section>
+
+        <section id="upcoming" class="exam-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Upcoming examination</h2>
+                    <p>Your available assessment</p>
+                </div>
+                <span class="upcoming-tag">DEMO EXAM</span>
+            </div>
+
+            <article class="exam-card">
+                <div class="exam-card-header">
+                    <div class="exam-icon">▤</div>
+                    <div class="exam-title">
+                        <h3>General Assessment</h3>
+                        <p>Practice examination · Sample content</p>
+                    </div>
+                    <span class="exam-status">Available</span>
+                </div>
+
+                <div class="exam-details">
+                    <div>
+                        <span>QUESTIONS</span>
+                        <strong>10 MCQs</strong>
+                    </div>
+                    <div>
+                        <span>DURATION</span>
+                        <strong>15 minutes</strong>
+                    </div>
+                    <div>
+                        <span>MODE</span>
+                        <strong>AI-assisted demo</strong>
+                    </div>
+                </div>
+
+                <div class="exam-card-footer">
+                    <p><span>●</span> System check required before starting</p>
+                    <button id="startExamButton" class="start-button">
+                        Prepare exam <span>→</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <section id="history" class="history-section">
+            <h2>Recent activity</h2>
+            <div class="history-empty">
+                <span>◷</span>
+                <p>Your completed exam sessions will appear here.</p>
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            EXAMSHIELD AI / V1.0
+            <span>SECURE ASSESSMENT EXPERIENCE</span>
+        </footer>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

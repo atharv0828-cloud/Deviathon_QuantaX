@@ -1,0 +1,320 @@
+/* System-check page layout and styling. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #08111f;
+    color: #edf4ff;
+    font-family: Arial, sans-serif;
+}
+
+.system-container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #24334a;
+    gap: 15px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 35px;
+}
+
+.brand h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.brand h2 span {
+    color: #22d3ee;
+}
+
+.brand p {
+    margin: 5px 0 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #91a4bf;
+}
+
+.secure-label {
+    color: #4ade80;
+    font-size: 12px;
+}
+
+.intro {
+    margin: 35px 0 28px;
+}
+
+.eyebrow {
+    color: #22d3ee;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.intro h1 {
+    margin: 10px 0;
+    font-size: clamp(28px, 4vw, 38px);
+}
+
+.intro > p:last-child {
+    color: #9aabc2;
+    line-height: 1.6;
+}
+
+.check-layout {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.checks-panel,
+.camera-panel {
+    padding: 25px;
+    border: 1px solid #253650;
+    border-radius: 16px;
+    background: #101c2e;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.panel-heading h2,
+.camera-panel h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.panel-heading span {
+    font-size: 11px;
+    color: #22d3ee;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px 0;
+    border-bottom: 1px solid #253650;
+}
+
+.check-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #1b2b42;
+    font-size: 20px;
+}
+
+.check-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.check-info h3 {
+    margin: 0 0 6px;
+    font-size: 14px;
+}
+
+.check-info p {
+    margin: 0;
+    color: #91a4bf;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.status {
+    font-size: 11px;
+    padding: 6px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.status.pending {
+    background: #29364a;
+    color: #bdc9d9;
+}
+
+.status.checking {
+    background: #3c3218;
+    color: #facc15;
+}
+
+.status.complete {
+    background: #123b30;
+    color: #4ade80;
+}
+
+.status.failed {
+    background: #48232a;
+    color: #fca5a5;
+}
+
+.primary-btn,
+.start-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 22px;
+    border: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-btn {
+    color: #07111f;
+    background: #22d3ee;
+}
+
+.primary-btn:hover {
+    background: #67e8f9;
+}
+
+.primary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.start-btn {
+    margin-top: 12px;
+    background: #16a34a;
+    color: white;
+}
+
+.start-btn:disabled {
+    background: #26364a;
+    color: #8291a5;
+    cursor: not-allowed;
+}
+
+.overall-message {
+    margin: 14px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #a8b8cc;
+    text-align: center;
+}
+
+.camera-panel h2 {
+    margin-bottom: 18px;
+}
+
+.camera-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #050a12;
+    border: 1px solid #30415a;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.camera-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    transform: scaleX(-1);
+}
+
+.camera-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #91a4bf;
+    text-align: center;
+    padding: 15px;
+}
+
+.camera-placeholder span {
+    font-size: 38px;
+}
+
+.camera-placeholder p {
+    font-size: 13px;
+}
+
+.camera-note {
+    color: #91a4bf;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.privacy-note {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 13px;
+    background: #17283c;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #c5d3e5;
+}
+
+.privacy-note p {
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    color: #71839c;
+    font-size: 11px;
+    padding: 30px 0;
+}
+
+@media (max-width: 750px) {
+    .check-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .checks-panel,
+    .camera-panel {
+        padding: 18px;
+    }
+
+    .check-item {
+        gap: 9px;
+    }
+
+    .check-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .status {
+        font-size: 10px;
+    }
+
+    .secure-label {
+        font-size: 10px;
+    }
+}

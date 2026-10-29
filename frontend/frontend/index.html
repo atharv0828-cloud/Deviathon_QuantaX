@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<!-- Exam Shield AI landing page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d19">
+    <title>ExamShield AI | Secure Assessment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PAGE 1: SPLASH SCREEN -->
+    <section id="splashScreen" class="screen splash-screen">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+
+        <div class="splash-content">
+            <div class="logo-container">
+                <div class="logo-ring"></div>
+                <div class="shield-logo">
+                    <svg viewBox="0 0 64 64" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 5L53 13V29C53 43 44 53 32 59C20 53 11 43 11 29V13L32 5Z"
+                              stroke="currentColor" stroke-width="3"
+                              stroke-linejoin="round"/>
+                        <path d="M22 31L29 38L43 23"
+                              stroke="currentColor" stroke-width="3.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <h1 class="brand-title">
+                EXAM<span>SHIELD</span>
+            </h1>
+
+            <div class="ai-label">ARTIFICIAL INTELLIGENCE</div>
+
+            <p class="tagline">Secure Assessments. Intelligent Proctoring.</p>
+
+            <div class="launch-loader">
+                <div class="launch-track">
+                    <div id="splashProgress" class="launch-progress"></div>
+                </div>
+                <p id="splashStatus">Initializing secure environment...</p>
+            </div>
+        </div>
+
+        <div class="splash-footer">
+            <span>EXAMSHIELD AI</span>
+            <span>SECURE ASSESSMENT PLATFORM</span>
+        </div>
+    </section>
+
+
+    <!-- PAGE 2: INITIALIZATION SCREEN -->
+    <section id="loadingScreen" class="screen loading-screen hidden">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+
+        <header class="topbar">
+            <a href="#" class="mini-brand">
+                <span class="mini-shield">⬡</span>
+                EXAM<span>SHIELD</span>
+                <small>AI</small>
+            </a>
+
+            <div class="secure-badge">
+                <span class="status-dot"></span>
+                SECURE SESSION
+            </div>
+        </header>
+
+        <main class="loading-main">
+            <div class="system-icon">
+                <svg viewBox="0 0 64 64" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 6L52 14V29C52 42 43 52 32 58C21 52 12 42 12 29V14L32 6Z"
+                          stroke="currentColor" stroke-width="2.5"/>
+                    <path d="M23 32L29 38L42 25"
+                          stroke="currentColor" stroke-width="3"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="orbit orbit-one"></span>
+                <span class="orbit orbit-two"></span>
+            </div>
+
+            <p class="eyebrow">SYSTEM INITIALIZATION</p>
+            <h1>Preparing your <span>secure exam</span></h1>
+            <p class="loading-description">
+                Please wait while we prepare the examination environment.
+                This may take a few moments.
+            </p>
+
+            <div class="progress-heading">
+                <span id="progressLabel">Initializing...</span>
+                <span id="progressPercent">0%</span>
+            </div>
+
+            <div class="main-track">
+                <div id="mainProgress" class="main-progress"></div>
+            </div>
+
+            <div class="checklist-card">
+                <div class="checklist-header">
+                    <div>
+                        <h2>System readiness</h2>
+                        <p>Initialization checklist</p>
+                    </div>
+                    <span id="checkCount" class="check-count">0 / 4</span>
+                </div>
+
+                <div class="check-item" id="check-app">
+                    <div class="check-icon">1</div>
+                    <div class="check-info">
+                        <h3>Application services</h3>
+                        <p>Preparing the application environment</p>
+                    </div>
+                    <span class="check-status">Waiting</span>
+                </div>
+
+                <div class="check-item" id="check-exam">
+                    <div class="check-icon">2</div>
+                    <div class="check-info">
+                        <h3>Exam configuration</h3>
+                        <p>Loading examination settings</p>
+                    </div>
+                    <span class="check-status">Waiting</span>
+                </div>
+
+                <div class="check-item" id="check-backend">
+                    <div class="check-icon">3</div>
+                    <div class="check-info">
+                        <h3>Backend connection</h3>
+                        <p>Checking the server connection</p>
+                    </div>
+                    <span class="check-status">Waiting</span>
+                </div>
+
+                <div class="check-item" id="check-ai">
+                    <div class="check-icon">4</div>
+                    <div class="check-info">
+                        <h3>AI proctoring service</h3>
+                        <p>Preparing the monitoring service</p>
+                    </div>
+                    <span class="check-status">Waiting</span>
+                </div>
+            </div>
+
+            <div id="completionMessage" class="completion-message hidden">
+                <span class="completion-icon">✓</span>
+                <div>
+                    <strong>Initialization demo complete</strong>
+                    <p>These simulated checks have finished. Live service
+                       verification will be enabled after integration.</p>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                Initialization could not finish.
+                <button id="retryButton" class="retry-button">Retry checks</button>
+            </div>
+
+            <p class="privacy-note">
+                <span>◆</span>
+                Your examination session will start only after the required
+                checks are complete.
+            </p>
+        </main>
+
+        <footer class="page-footer">
+            <span>EXAMSHIELD AI <span class="footer-divider">/</span> V1.0</span>
+            <span>SECURE ASSESSMENT EXPERIENCE</span>
+        </footer>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<!-- Create-exam page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamShield AI | Create Exam</title>
+    <link rel="stylesheet" href="create-exam.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="admin-dashboard.html" class="brand">
+            <span class="logo">ES</span>
+            <span>ExamShield AI <small>ADMIN CONSOLE</small></span>
+        </a>
+        <a href="admin-dashboard.html" class="back-button">← Dashboard</a>
+    </header>
+
+    <main class="container">
+        <div class="page-heading">
+            <p class="eyebrow">EXAM MANAGEMENT / CREATE</p>
+            <h1>Create New Examination</h1>
+            <p>Configure the assessment before making it available to students.</p>
+        </div>
+
+        <form id="examForm">
+
+            <section class="panel">
+                <h2>01. Exam Details</h2>
+                <p class="section-description">Basic information about your assessment.</p>
+
+                <div class="form-grid">
+                    <div class="field full">
+                        <label for="examTitle">Exam Title *</label>
+                        <input id="examTitle" name="examTitle"
+                               placeholder="e.g. Computer Science Mid-Semester"
+                               required maxlength="100">
+                    </div>
+
+                    <div class="field">
+                        <label for="subject">Subject *</label>
+                        <input id="subject" name="subject"
+                               placeholder="e.g. Computer Science" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="examCode">Exam Code *</label>
+                        <input id="examCode" name="examCode"
+                               placeholder="e.g. CS101" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="duration">Duration (minutes) *</label>
+                        <input id="duration" name="duration" type="number"
+                               min="1" max="300" value="30" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="totalQuestions">Number of Questions *</label>
+                        <input id="totalQuestions" name="totalQuestions"
+                               type="number" min="1" max="100" value="5" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="marksPerQuestion">Marks per Question *</label>
+                        <input id="marksPerQuestion" name="marksPerQuestion"
+                               type="number" min="1" max="100" value="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="startTime">Exam Start *</label>
+                        <input id="startTime" name="startTime" type="datetime-local" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="endTime">Exam End *</label>
+                        <input id="endTime" name="endTime" type="datetime-local" required>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="question-heading">
+                    <div>
+                        <h2>02. MCQ Questions</h2>
+                        <p class="section-description">
+                            Add questions, four options and the correct answer.
+                        </p>
+                    </div>
+                    <span class="question-counter" id="questionCounter">5 Questions</span>
+                </div>
+
+                <div id="questionsContainer"></div>
+
+                <button type="button" id="addQuestionButton" class="secondary-button">
+                    + Add Question
+                </button>
+            </section>
+
+            <section class="panel">
+                <h2>03. Proctoring Settings</h2>
+                <p class="section-description">Configure the prototype's examination rules.</p>
+
+                <div class="settings-list">
+                    <label class="setting">
+                        <span>
+                            <strong>Webcam Required</strong>
+                            <small>Require camera permission before the exam.</small>
+                        </span>
+                        <input type="checkbox" id="cameraRequired" checked>
+                    </label>
+
+                    <label class="setting">
+                        <span>
+                            <strong>Fullscreen Mode</strong>
+                            <small>Request fullscreen when the student starts.</small>
+                        </span>
+                        <input type="checkbox" id="fullscreenRequired" checked>
+                    </label>
+
+                    <label class="setting">
+                        <span>
+                            <strong>Tab-switch Warnings</strong>
+                            <small>Record detected browser focus changes.</small>
+                        </span>
+                        <input type="checkbox" id="tabWarnings" checked>
+                    </label>
+                </div>
+
+                <p class="note">
+                    These settings configure the prototype. They do not provide
+                    tamper-proof security or detect every form of cheating.
+                </p>
+            </section>
+
+            <div class="form-actions">
+                <a href="admin-dashboard.html" class="cancel-button">Cancel</a>
+                <button type="submit" class="publish-button">Save Exam →</button>
+            </div>
+
+            <p id="formMessage" role="status"></p>
+        </form>
+    </main>
+
+    <script src="create-exam.js"></script>
+</body>
+</html>

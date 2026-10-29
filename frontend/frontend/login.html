@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<!-- Login page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ExamShield AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="auth-page">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="auth-header">
+        <a class="mini-brand" href="index.html">
+            <span class="mini-shield">⬡</span>
+            EXAM<span>SHIELD</span><small>AI</small>
+        </a>
+        <span class="secure-badge">
+            <span class="status-dot"></span> SECURE LOGIN
+        </span>
+    </header>
+
+    <main class="auth-layout">
+        <section class="welcome-panel">
+            <div class="welcome-tag">INTELLIGENT EXAMINATION PLATFORM</div>
+            <h1>Every exam deserves<br>a <span>fair environment.</span></h1>
+            <p>
+                Welcome to ExamShield AI. Sign in to access your
+                examinations and your secure assessment dashboard.
+            </p>
+
+            <div class="feature-list">
+                <div>✓ <span>Secure examination sessions</span></div>
+                <div>✓ <span>AI-assisted proctoring</span></div>
+                <div>✓ <span>Transparent activity reporting</span></div>
+            </div>
+
+            <div class="welcome-decoration">
+                <div class="decoration-ring"></div>
+                <div class="decoration-shield">⬡</div>
+            </div>
+        </section>
+
+        <section class="login-card">
+            <div class="login-card-top">
+                <div class="login-icon">↗</div>
+                <p class="eyebrow">STUDENT PORTAL</p>
+                <h2>Welcome back</h2>
+                <p class="muted">Enter your details to continue.</p>
+            </div>
+
+            <form id="loginForm">
+                <label for="studentId">Student ID or email</label>
+                <input
+                    id="studentId"
+                    name="studentId"
+                    type="text"
+                    placeholder="Enter your student ID"
+                    autocomplete="username"
+                    required
+                >
+
+                <div class="password-heading">
+                    <label for="password">Password</label>
+                    <button type="button" id="togglePassword"
+                            class="text-button">Show</button>
+                </div>
+
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <div class="login-options">
+                    <label class="remember-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <span class="demo-label">DEMO MODE</span>
+                </div>
+
+                <p id="loginError" class="form-error" role="alert"></p>
+
+                <button id="loginButton" class="primary-button" type="submit">
+                    <span id="buttonText">Sign in securely</span>
+                    <span id="buttonArrow">→</span>
+                </button>
+            </form>
+
+            <div class="demo-note">
+                <strong>Prototype access</strong>
+                <p>
+                    This is a frontend demonstration. Enter any non-empty
+                    ID and password to continue. No real account is verified.
+                </p>
+            </div>
+
+            <p class="login-footer">
+                By continuing, you agree to follow the examination rules.
+            </p>
+        </section>
+    </main>
+
+    <footer class="auth-footer">
+        <span>EXAMSHIELD AI / V1.0</span>
+        <span>SECURE ASSESSMENT EXPERIENCE</span>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

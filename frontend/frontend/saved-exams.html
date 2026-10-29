@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<!-- Saved-exams page structure. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Exams | ExamShield AI</title>
+  <link rel="stylesheet" href="saved-exams.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">🛡 ExamShield <b>AI</b></div>
+    <p class="nav-label">ADMIN CONSOLE</p>
+    <a href="admin-dashboard.html">▦ Overview</a>
+    <a href="create-exam.html">＋ Create Exam</a>
+    <a class="active" href="saved-exams.html">▤ Saved Exams</a>
+    <a href="live-monitor.html">◉ Live Monitoring</a>
+    <a href="reports.html">▥ Results & Reports</a>
+    <button id="logoutButton" class="logout">↪ Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">EXAM MANAGEMENT</p>
+        <h1>Saved Exams</h1>
+        <p class="muted">View, update and manage exams created by the administrator.</p>
+      </div>
+      <a class="primary-btn" href="create-exam.html">+ Create Exam</a>
+    </header>
+
+    <section class="stats">
+      <article class="stat">
+        <span>Total saved exams</span>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="stat">
+        <span>Total questions</span>
+        <strong id="questionCount">0</strong>
+      </article>
+      <article class="stat">
+        <span>Total duration</span>
+        <strong id="durationCount">0 min</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div>
+          <h2>All Examinations</h2>
+          <p class="muted">Your saved exam records appear here.</p>
+        </div>
+        <input id="searchInput" type="search" placeholder="Search by title, subject or code">
+      </div>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Exam</th>
+              <th>Code</th>
+              <th>Questions</th>
+              <th>Duration</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="examRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="editDialog">
+    <form id="editForm">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">EXAM SETTINGS</p>
+          <h2>Edit Exam</h2>
+        </div>
+        <button type="button" id="closeDialog" class="close-btn" aria-label="Close">✕</button>
+      </div>
+
+      <label for="editTitle">Exam title</label>
+      <input id="editTitle" maxlength="100" required>
+
+      <label for="editSubject">Subject</label>
+      <input id="editSubject" maxlength="100" required>
+
+      <label for="editCode">Unique exam code</label>
+      <input id="editCode" maxlength="40" required>
+
+      <div class="form-grid">
+        <div>
+          <label for="editDuration">Duration (minutes)</label>
+          <input id="editDuration" type="number" min="1" max="600" required>
+        </div>
+        <div>
+          <label for="editMarks">Marks per question</label>
+          <input id="editMarks" type="number" min="1" max="100" required>
+        </div>
+      </div>
+
+      <label for="editStart">Start time</label>
+      <input id="editStart" type="datetime-local">
+
+      <label for="editEnd">End time</label>
+      <input id="editEnd" type="datetime-local">
+
+      <p class="muted dialog-note">
+        Existing questions, options, correct answers and security settings will be preserved.
+      </p>
+
+      <p id="formError" class="form-error" role="alert"></p>
+
+      <div class="dialog-actions">
+        <button type="button" id="cancelEdit" class="secondary-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save Changes</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="saved-exams.js"></script>
+</body>
+</html>

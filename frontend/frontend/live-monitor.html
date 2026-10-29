@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<!-- Live-monitor page structure. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Monitoring | ExamShield AI</title>
+  <link rel="stylesheet" href="live-monitor.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">🛡</span> ExamShield <b>AI</b></div>
+    <p class="nav-label">ADMIN WORKSPACE</p>
+    <a href="admin-dashboard.html">▦ &nbsp; Dashboard</a>
+    <a href="create-exam.html">＋ &nbsp; Create Exam</a>
+    <a class="active" href="live-monitor.html">◉ &nbsp; Live Monitoring</a>
+    <a href="reports.html">▤ &nbsp; Results & Reports</a>
+    <button id="logoutBtn" class="logout">↪ &nbsp; Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">EXAM SECURITY CENTER</p>
+        <h1>Live Monitoring</h1>
+        <p class="muted">Monitor exam sessions and review suspicious events.</p>
+      </div>
+      <span class="demo-badge">DEMO MODE</span>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Active Sessions</span>
+        <strong id="activeCount">04</strong>
+        <small>Sample demo data</small>
+      </article>
+      <article class="stat-card">
+        <span>Events to Review</span>
+        <strong id="reviewCount">03</strong>
+        <small>Requires administrator review</small>
+      </article>
+      <article class="stat-card">
+        <span>Verified Sessions</span>
+        <strong id="verifiedCount">02</strong>
+        <small>Illustrative status only</small>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>Candidate Sessions</h2>
+          <p class="muted">Sample students for interface demonstration</p>
+        </div>
+        <input id="searchInput" type="search" placeholder="Search student or ID...">
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Candidate</th>
+              <th>Exam</th>
+              <th>Progress</th>
+              <th>Session Status</th>
+              <th>Events</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="candidateRows"></tbody>
+        </table>
+      </div>
+      <p class="footnote">These are simulated sessions, not connected candidates.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>Security Event Log</h2>
+          <p class="muted">Review, acknowledge and track sample events.</p>
+        </div>
+        <button id="refreshBtn" class="secondary-btn">↻ Refresh Demo</button>
+      </div>
+      <div id="eventList" class="event-list"></div>
+    </section>
+  </main>
+
+  <script src="live-monitor.js"></script>
+</body>
+</html>

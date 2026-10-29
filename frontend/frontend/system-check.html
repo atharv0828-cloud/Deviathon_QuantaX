@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<!-- System-check page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamShield AI | System Check</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="system-check.css">
+</head>
+<body>
+    <main class="system-container">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-icon">🛡</span>
+                <div>
+                    <h2>ExamShield <span>AI</span></h2>
+                    <p>SECURE EXAMINATION SYSTEM</p>
+                </div>
+            </div>
+            <span class="secure-label">● SECURE SESSION</span>
+        </header>
+
+        <section class="intro">
+            <p class="eyebrow">PRE-EXAMINATION</p>
+            <h1>System Readiness Check</h1>
+            <p>Let's make sure your device is ready before you begin your examination.</p>
+        </section>
+
+        <section class="check-layout">
+            <div class="checks-panel">
+                <div class="panel-heading">
+                    <h2>Device Diagnostics</h2>
+                    <span id="checkCount">0 / 4 READY</span>
+                </div>
+
+                <div class="check-item">
+                    <div class="check-icon">📷</div>
+                    <div class="check-info">
+                        <h3>Webcam</h3>
+                        <p id="cameraMessage">Camera permission required</p>
+                    </div>
+                    <span class="status pending" id="cameraStatus">Pending</span>
+                </div>
+
+                <div class="check-item">
+                    <div class="check-icon">🎙</div>
+                    <div class="check-info">
+                        <h3>Microphone</h3>
+                        <p id="micMessage">Microphone permission required</p>
+                    </div>
+                    <span class="status pending" id="micStatus">Pending</span>
+                </div>
+
+                <div class="check-item">
+                    <div class="check-icon">🌐</div>
+                    <div class="check-info">
+                        <h3>Internet Connection</h3>
+                        <p id="internetMessage">Checking network availability</p>
+                    </div>
+                    <span class="status pending" id="internetStatus">Pending</span>
+                </div>
+
+                <div class="check-item">
+                    <div class="check-icon">💻</div>
+                    <div class="check-info">
+                        <h3>Browser Compatibility</h3>
+                        <p id="browserMessage">Checking browser capabilities</p>
+                    </div>
+                    <span class="status pending" id="browserStatus">Pending</span>
+                </div>
+
+                <button id="runChecksButton" class="primary-btn">
+                    Run System Checks
+                </button>
+
+                <p id="overallMessage" class="overall-message" aria-live="polite">
+                    Run all checks to continue.
+                </p>
+
+                <button id="startExamButton" class="start-btn" disabled>
+                    Start Exam →
+                </button>
+            </div>
+
+            <aside class="camera-panel">
+                <h2>Camera Preview</h2>
+                <div class="camera-preview">
+                    <video id="cameraPreview" autoplay playsinline muted></video>
+                    <div id="cameraPlaceholder" class="camera-placeholder">
+                        <span>📷</span>
+                        <p>Camera preview will appear here</p>
+                    </div>
+                </div>
+                <p class="camera-note">
+                    Keep your face clearly visible and ensure adequate lighting.
+                </p>
+                <div class="privacy-note">
+                    <span>🔒</span>
+                    <p>Your browser will ask permission before accessing your camera and microphone.</p>
+                </div>
+            </aside>
+        </section>
+
+        <footer>
+            ExamShield AI · System Readiness Module · Prototype
+        </footer>
+    </main>
+
+    <script src="system-check.js"></script>
+</body>
+</html>

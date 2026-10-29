@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<!-- Admin login page structure. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamShield AI | Admin Login</title>
+    <link rel="stylesheet" href="admin-login.css">
+</head>
+<body>
+    <main class="login-container">
+        <div class="brand">
+            <div class="brand-icon">🛡</div>
+            <h1>ExamShield <span>AI</span></h1>
+            <p>ADMINISTRATION PORTAL</p>
+        </div>
+
+        <section class="login-card">
+            <div class="admin-icon">⚙</div>
+            <p class="eyebrow">AUTHORIZED PERSONNEL ONLY</p>
+            <h2>Admin Sign In</h2>
+            <p class="subtitle">
+                Sign in to manage examinations and monitor assessments.
+            </p>
+
+            <form id="adminLoginForm">
+                <label for="adminId">Admin ID / Email</label>
+                <input
+                    type="text"
+                    id="adminId"
+                    placeholder="Enter your admin ID"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="adminPassword">Password</label>
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <p id="loginError" class="error-message" aria-live="polite"></p>
+
+                <button type="submit" id="loginButton">
+                    Access Admin Portal →
+                </button>
+            </form>
+
+            <div class="security-note">
+                🔒 Administrative access is intended for authorized staff.
+            </div>
+        </section>
+
+        <p class="back-link">
+            Student? <a href="login.html">Go to Student Login</a>
+        </p>
+
+        <footer>ExamShield AI · Administration Module · Prototype</footer>
+    </main>
+
+    <script src="admin-login.js"></script>
+</body>
+</html>

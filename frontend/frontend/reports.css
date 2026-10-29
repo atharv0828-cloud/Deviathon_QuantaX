@@ -1,0 +1,58 @@
+/* Reports page layout and styling. */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filters select {
+  border: 1px solid #dce2ed;
+  border-radius: 9px;
+  padding: 11px 13px;
+  background: white;
+  font-size: 13px;
+  color: #172033;
+}
+
+.score {
+  font-weight: 800;
+}
+
+.score-high { color: #16804a; }
+.score-mid { color: #a66a00; }
+.score-low { color: #c33745; }
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.summary-item {
+  padding: 18px;
+  border-radius: 10px;
+  background: #f7f8fc;
+}
+
+.summary-item span {
+  display: block;
+  color: #748096;
+  font-size: 12px;
+}
+
+.summary-item strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 22px;
+}
+
+@media (max-width: 650px) {
+  .summary-grid { grid-template-columns: 1fr; }
+}
